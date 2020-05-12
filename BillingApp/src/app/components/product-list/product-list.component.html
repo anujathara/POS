@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Search Product</h2>
+<div mat-dialog-content (keydown.enter)="onOkClick()">
+  <div class="input-container">
+    <mat-form-field>
+      <mat-icon title="Search" class="mat-prefix-search" matPrefix>search</mat-icon>
+      <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)" placeholder="Search Product"
+        [(ngModel)]="filterValue" autocomplete="off">
+      <button mat-button *ngIf="filterValue" class="mat-suffix-clear" matSuffix mat-icon-button aria-label="Clear" (click)="clearFilter()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <div class="mat-elevation-z8" (keydown)="keydown($event)" tabindex="0" #matTableDiv>
+    <mat-table (keypress)="scroll($event)" id="matTable" #matTable [dataSource]="dataSource"
+      [style.height.px]="data.dialogHeight - 240" [trackBy]="recTrackBy">
+      <ng-container matColumnDef="slNo">
+        <mat-header-cell style="width: 100px;" *matHeaderCellDef> Sl No. </mat-header-cell>
+        <mat-cell style="width: 100px;" *matCellDef="let element; let i = index"> {{(i+1) + (myPaginator.pageIndex * myPaginator.pageSize)}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="code">
+        <mat-header-cell style="width: 20px;" *matHeaderCellDef> Code </mat-header-cell>
+        <mat-cell style="width: 20px;" *matCellDef="let element">
+          {{ element.ProductCode }}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="productName">
+        <mat-header-cell mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.ProductName }}
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+      <mat-row #matrow [ngClass]="{'highlight': selectedRowIndex == row.SerialNumber}" (click)="switchRow(row)"
+        [attr.position]="getPosition(row)" [ngClass]="{'mat-table-focussed': row == focused }" [style.background]="highlightedRows.indexOf(row) != -1 ? '#4D4D4D' : ''"
+        (keypress)="scroll($event)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  <mat-paginator #myPaginator [length]="dataSource.data.length" [pageSize]="50" showFirstLastButtons>
+  </mat-paginator>
+
+
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button color="primary" (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="this.focused" cdkFocusInitial>Select</button>
+</div>

@@ -1,0 +1,17 @@
+
+<div class="bill-container">
+  <mat-tab-group [selectedIndex]="selected.value" (selectedTabChange)="onTabChange($event)" (selectedIndexChange)="selected.setValue($event)">
+    <mat-tab *ngFor="let tab of tabs; let index = index">
+      <ng-template mat-tab-label>
+        {{ tab.name }}
+        <mat-icon class="tab-icon-close" (click)="removeTab(index)">clear</mat-icon>
+      </ng-template>
+      <app-sales-bill [productList]="fullProductList" [products]="tab.products" [tabid]="tab.id" id="{{tab.id}}_view"></app-sales-bill>
+    </mat-tab>
+    <mat-tab *ngIf="tabs.length !== 5" disabled>
+      <ng-template mat-tab-label>
+        <mat-icon class="tab-icon-close" (click)="addTab(index)">add</mat-icon>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -1,0 +1,28 @@
+  
+            
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex: 1 0 auto;
+    margin: 0 auto;
+    text-align: left;
+    }
+
+
+    .spinner-container {
+        z-index: 5;
+        background-color: rgba(1, 1, 1, 0.7);
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+      }
+      
+      .spinner {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+      }

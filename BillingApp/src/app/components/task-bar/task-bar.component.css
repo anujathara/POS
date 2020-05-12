@@ -1,0 +1,6 @@
+
+.main-content {
+    flex-direction: row !important; 
+    height: 100%;
+    display: table-cell;
+}

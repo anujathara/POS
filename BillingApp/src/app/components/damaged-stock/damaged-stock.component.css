@@ -1,0 +1,106 @@
+
+.item-input {
+    background-color: inherit;
+    height: 30px;
+    border: transparent;
+    width: 100%;
+}
+
+.product-contianer {
+    overflow: auto;
+    height: 100%;
+    width: calc(100% - 20px);
+    display: table;
+    padding: 10px;
+}
+
+.top-banner-row {
+    height: max-content;
+    display: table-row;
+}
+
+.row1 {
+    display: table;
+    height: 30px;
+    width: 100%;
+}
+
+.column1 {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.top-banner-cell {
+    display: table-cell;
+    padding-bottom: 10px;
+}
+
+.bottom-banner-row {
+    display: table-row;
+}
+
+.bottom-banner-cell {
+    display: table-cell;
+    height: 80px;
+}
+
+.bottom-banner-row2 {
+    /* float: right; */
+    /* display: flex; */
+}
+
+.bottom-banner-column1 {
+    /* width: 100%; */
+    float: left;
+    width: calc(100% - 555px);
+}
+
+.bottom-banner-column2 {
+    float: right;
+    width: 550px;
+}
+
+.mat-card {
+    /* height: 100%; */
+    color: white;
+    background-color: #2D2D2D;
+    padding: 10px 10px 10px 10px !important;
+}
+
+.text-inside-grid {
+    width: 100%; 
+    text-align: right;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+    'dateArea1 dateArea2 . codeArea1 codeArea2 . nameArea1 nameArea2 . descArea1 descArea2 ' 
+    'voucherArea1 voucherArea2 . qtyArea1 qtyArea2 . costArea1 costArea2 .  descArea1 descArea2 '; 
+    grid-template-columns: 100px 90px 20px 100px 90px 20px 100px auto 20px 100px auto;
+    grid-row-gap: 5px;
+    align-content: space-between;
+  }
+
+
+  .bottom-actions {
+    display: table-row;
+    height: 25px;
+    text-align: right;
+  }
+
+  .button {
+    border-color: #585858;
+    color: #cccccc;
+    background: #353535;
+    line-height: 22px;
+    margin: 2px;
+  }
+
+  .button-grid {
+      margin: 5px 0 5px 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-column-gap: 5px;
+    align-content: space-between;
+  }

@@ -1,0 +1,84 @@
+<div class="product-contianer mat-elevation-z8">
+  <div class="top-banner-row">
+    <div class="top-banner-cell">
+      <mat-card style="margin-bottom: 7px">
+        <div class="grid-container">
+          <div style="grid-area: dateArea1">
+            Date.:
+          </div>
+          <div style="grid-area: dateArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: voucherArea1">
+            Voucher#:
+          </div>
+          <div style="grid-area: voucherArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: codeArea1">
+            Product Code:
+          </div>
+          <div style="grid-area: codeArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: descArea1">
+            Description:
+          </div>
+          <div style="grid-area: descArea2">
+            <mat-form-field class="custom-form-feild"><textarea matInput></textarea></mat-form-field>
+          </div>
+          <div style="grid-area: nameArea1">
+            Product Name:
+          </div>
+          <div style="grid-area: nameArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+
+          <div style="grid-area: qtyArea1">
+            Damage Qty:
+          </div>
+          <div style="grid-area: qtyArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: costArea1">
+            Cost:
+          </div>
+          <div style="grid-area: costArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="bottom-actions">
+    <div class="button-grid">
+      <div>
+        <button class="button" mat-stroked-button color="primary">New</button>
+        <button class="button" mat-stroked-button color="primary">Save</button>
+        <button class="button" mat-stroked-button color="primary">Search</button>
+        <button class="button" mat-stroked-button color="primary">Preview</button>
+        <button class="button" mat-stroked-button color="primary">Refresh</button>
+        <button class="button" mat-stroked-button color="primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

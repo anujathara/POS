@@ -1,0 +1,46 @@
+<mat-menu #levelOne="matMenu" direction="down" yPosition="below">
+        <span (mouseenter)="menuenter()" (mouseleave)="menuLeave(levelOneTrigger, button)">
+          <ng-container *ngFor="let childL1 of menuItem.children">
+            <ng-container *ngIf="childL1.label !== '-'; else showDivider">
+              <li class="p-0" *ngIf="!childL1.children" mat-menu-item
+                (click)="createTask(childL1.title, childL1.route)">
+                <a class="nav-link">{{childL1.label}}
+                  <i *ngIf="childL1.icon" [ngClass]="childL1.icon"></i>
+                </a>
+              </li>
+            </ng-container>
+            <ng-template #showDivider>
+              <mat-divider></mat-divider>
+            </ng-template>
+            <ng-container *ngIf="childL1.children && childL1.children.length > 0">
+              <ng-container *ngIf="childL1.label !== '-'; else showDivider">
+                <li mat-menu-item #levelTwoTrigger="matMenuTrigger" [matMenuTriggerFor]="levelTwo"
+                  (click)="createTask(childL1.title, childL1.route)">
+                  <a class="nav-link">{{childL1.label}}
+                    <i *ngIf="childL1.icon" [ngClass]="childL1.icon"></i>
+                  </a>
+                </li>
+              </ng-container>
+              <ng-template #showDivider>
+                <mat-divider></mat-divider>
+              </ng-template>
+              <mat-menu #levelTwo="matMenu">
+                <span (mouseenter)="menu2enter()" (mouseleave)="menu2Leave(levelOneTrigger,levelTwoTrigger, button)">
+                  <ng-container *ngFor="let childL2 of childL1.children">
+                    <ng-container *ngIf="childL2.label !== '-'; else showDivider">
+                      <li class="p-0" mat-menu-item (click)="createTask(childL2.title, childL2.route)">
+                        <a class="nav-link">{{childL2.label}}
+                          <i *ngIf="childL2.icon" [ngClass]="childL2.icon"></i>
+                        </a>
+                      </li>
+                    </ng-container>
+                    <ng-template #showDivider>
+                      <mat-divider></mat-divider>
+                    </ng-template>
+                  </ng-container>
+                </span>
+              </mat-menu>
+            </ng-container>
+          </ng-container>
+        </span>
+      </mat-menu>

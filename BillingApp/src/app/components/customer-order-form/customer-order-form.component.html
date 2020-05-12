@@ -1,0 +1,249 @@
+<div class="customer-contianer mat-elevation-z8">
+  <div class="top-banner-row">
+    <div class="top-banner-cell">
+      <mat-card>
+        <div class="grid-container">
+          <div style="grid-area: topDateArea1">
+            Date:
+          </div>
+          <div style="grid-area: topDateArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topCustomerArea1">
+            Customer:
+          </div>
+          <div style="grid-area: topCustomerArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topModelArea1">
+            Model:
+          </div>
+          <div style="grid-area: topModelArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topTimeArea1">
+            Time:
+          </div>
+          <div style="grid-area: topTimeArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topAddressArea1">
+            Address:
+          </div>
+          <div style="grid-area: topAddressArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topSlNoArea1">
+            Serial No.:
+          </div>
+          <div style="grid-area: topSlNoArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topDelDateArea1">
+            Delivery Date:
+          </div>
+          <div style="grid-area: topDelDateArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput [matDatepicker]="picker2">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topAddress2Area2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topApxCostArea1">
+            Aprox.Cost:
+          </div>
+          <div style="grid-area: topApxCostArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topDelTimeArea1">
+            Delivery Time:
+          </div>
+          <div style="grid-area: topDelTimeArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topAddress3Area2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topRemarkArea1">
+            Remarks
+          </div>
+          <div style="grid-area: topRemarkArea2">
+            <mat-form-field class="custom-form-feild"><textarea matInput></textarea></mat-form-field>
+          </div>
+          <div style="grid-area: topEstAmtArea1">
+            Est Amount:
+          </div>
+          <div style="grid-area: topEstAmtArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topPhoneArea1">
+            Phone:
+          </div>
+          <div style="grid-area: topPhoneArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topDesc1Area1">
+            Description#1:
+          </div>
+          <div style="grid-area: topDesc1Area2">
+            <mat-form-field class="custom-form-feild"><textarea matInput></textarea></mat-form-field>
+          </div>
+          <div style="grid-area: topAdvArea1">
+            Advance:
+          </div>
+          <div style="grid-area: topAdvArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <!-- <div style="grid-area: topDesc2Area">
+            Order Form No.
+          </div> -->
+          <!-- <div style="grid-area: topDesc2Area">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div> -->
+          <div style="grid-area: topDesc2Area1">
+            Description#2:
+          </div>
+          <div style="grid-area: topDesc2Area2">
+            <mat-form-field class="custom-form-feild"><textarea matInput></textarea></mat-form-field>
+          </div>
+          <div style="grid-area: topBalArea1">
+            Balance:
+          </div>
+          <div style="grid-area: topBalArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topRefArea1">
+            Ref No.
+          </div>
+          <div style="grid-area: topRefArea2">
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div style="grid-area: topDesc3Area1">
+            Description#3:
+          </div>
+          <div style="grid-area: topDesc3Area2">
+            <mat-form-field class="custom-form-feild"><textarea matInput></textarea></mat-form-field>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="purchase-table-container">
+      <mat-table id="{{tabid}}_view" [dataSource]="dataSource">
+        <ng-container matColumnDef="slNo">
+          <mat-header-cell *matHeaderCellDef> Sl No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="code">
+          <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input autofocus (keyup.enter)="openProducts()" class="item-input" matInput
+              [value]="element !== undefined &&  element.ProductCode"
+              [(ngModel)]="element !== undefined && element.ProductCode">
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="productName">
+          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input (keyup.enter)="openProducts()" class="item-input" matInput
+              [value]="element !== undefined && element.ProductName"
+              [(ngModel)]="element !== undefined && element.ProductName">
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="unit">
+          <mat-header-cell *matHeaderCellDef> Nos </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
+              [value]="element !== undefined && element.unit" [(ngModel)]="element !== undefined && element.unit">
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="qty">
+          <mat-header-cell *matHeaderCellDef> Rate </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
+              [value]="element !== undefined && element.qty" [(ngModel)]="element !== undefined && element.qty">
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="price">
+          <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
+              [value]="element !== undefined && element.price" [(ngModel)]="element !== undefined && element.price">
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+
+  <div class="bottom-actions">
+    <div class="button-grid">
+      <div>
+        <button class="button" mat-stroked-button color="primary">New</button>
+        <button class="button" mat-stroked-button color="primary">Save</button>
+        <button class="button" mat-stroked-button color="primary">Modify</button>
+        <button class="button" mat-stroked-button color="primary">Delete</button>
+        <button class="button" mat-stroked-button color="primary">Search</button>
+        <button class="button" mat-stroked-button color="primary">Preview</button>
+        <button class="button" mat-stroked-button color="primary">Refresh</button>
+        <button class="button" mat-stroked-button color="primary">Print</button>
+        <button class="button" mat-stroked-button color="primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

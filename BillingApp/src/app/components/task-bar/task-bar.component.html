@@ -1,0 +1,11 @@
+    <div class="main-content">
+      <mat-tab-group [selectedIndex]="selected.value" (selectedTabChange)="onTabChange($event)" (selectedIndexChange)="selected.setValue($event)">
+        <mat-tab *ngFor="let tab of tabs; let index = index">
+          <ng-template mat-tab-label>
+            {{ tab.title }}
+            <mat-icon class="tab-icon-close" (click)="removeTab(index)">clear</mat-icon>
+          </ng-template>
+          <router-outlet></router-outlet>
+        </mat-tab>
+      </mat-tab-group>
+    </div>

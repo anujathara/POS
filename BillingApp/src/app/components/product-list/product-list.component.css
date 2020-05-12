@@ -1,0 +1,36 @@
+.mat-icon {
+  color: white;
+}
+
+.mat-prefix-search {
+  font-size: 16px;
+  /* margin-bottom: -5px; */
+  vertical-align: middle; 
+}
+
+.mat-suffix-clear {
+  font-size: 15px !important;
+  /* margin-bottom: -2px; */
+  vertical-align: middle; 
+}
+
+.mat-dialog-content {
+  max-height: unset !important;
+}
+
+.mat-header-cell:nth-child(1), .mat-cell:nth-child(1) {
+  flex: 0 0 40px;
+  justify-content: center;
+}
+
+.mat-header-cell:nth-child(2), .mat-cell:nth-child(2) {
+  flex: 0 0 120px;
+}
+
+.mat-header-cell:nth-child(3), .mat-cell:nth-child(3) {
+
+}
+
+.input-container {
+  padding-bottom: 10px;
+}

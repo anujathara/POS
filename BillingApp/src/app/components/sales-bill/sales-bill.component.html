@@ -1,0 +1,223 @@
+<div class="sales-contianer mat-elevation-z8">
+  <div class="top-banner-row">
+    <div class="top-banner-cell">
+      <mat-card>
+        <div class="grid-container">
+          <div>
+            Form Type:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Payment Mode:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Customer:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Address:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+
+
+          <div>
+            Bill No.:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Reference:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Phone No.:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+            Date:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Sale Type:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            GSTIN:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="table-container">
+      <mat-table id="{{tabid}}_view" [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="slNo">
+          <mat-header-cell *matHeaderCellDef> Sl No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="code">
+          <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input autofocus (keyup.enter)="openProducts()" class="item-input" matInput
+              [value]="element !== undefined &&  element.ProductCode"
+              [(ngModel)]="element !== undefined && element.ProductCode">
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="productName">
+          <mat-header-cell *matHeaderCellDef> Product Name </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input (keyup.enter)="openProducts()" class="item-input" matInput
+              [value]="element !== undefined && element.ProductName"
+              [(ngModel)]="element !== undefined && element.ProductName">
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="qty">
+          <mat-header-cell *matHeaderCellDef> Qty </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <input (keyup.enter)="addProduct()" class="qty-input item-input" #qtyInput matInput
+              [value]="element !== undefined && element.qty" [(ngModel)]="element !== undefined && element.qty">
+          </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="free">
+          <mat-header-cell *matHeaderCellDef> Free </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.free}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="tax">
+          <mat-header-cell *matHeaderCellDef> Tax </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.tax}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="mrp">
+          <mat-header-cell *matHeaderCellDef> MRP </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.mrp}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="unitPrice">
+          <mat-header-cell *matHeaderCellDef> Unit Price </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.unitPrice}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="netAmount">
+          <mat-header-cell *matHeaderCellDef> Net Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.netAmount}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+
+  <div class="bottom-banner-row">
+    <div class="bottom-banner-cell">
+      <div class="bottom-banner-row2">
+        <div class="bottom-banner-column1">
+        </div>
+        <div class="bottom-banner-column2">
+          <mat-card>
+            <mat-grid-list cols="5" rowHeight="20px">
+              <mat-grid-tile class="rate-card-style" *ngFor="let tile of tiles" [colspan]="tile.cols"
+                [rowspan]="tile.rows" [style.font-size]="tile.fontsize">
+                <div class="text-inside-grid">
+                  {{tile.text}}
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

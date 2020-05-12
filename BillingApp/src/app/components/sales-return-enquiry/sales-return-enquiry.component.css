@@ -1,0 +1,136 @@
+
+.item-input {
+    background-color: inherit;
+    height: 30px;
+    border: transparent;
+    width: 100%;
+}
+
+.customer-contianer {
+    overflow: auto;
+    height: 100%;
+    width: calc(100% - 20px);
+    display: table;
+    padding: 10px;
+}
+
+.table {
+    display: table-row;
+}
+
+.purchase-table-container {
+    display: table-cell;
+}
+
+.product-list {
+    width: 600px !important;
+}
+
+
+
+
+
+.mat-header-cell:nth-child(2), .mat-cell:nth-child(4) {
+    flex: 0 0 40px;
+    justify-content: center;
+}
+
+.qty-input {
+    text-align: center;
+}
+
+.top-banner-row {
+    height: max-content;
+    display: table-row;
+}
+
+.row1 {
+    display: table;
+    height: 30px;
+    width: 100%;
+}
+
+.column1 {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.top-banner-cell {
+    display: table-cell;
+    padding-bottom: 10px;
+}
+
+.bottom-banner-row {
+    display: table-row;
+}
+
+.bottom-banner-cell {
+    display: table-cell;
+    height: 80px;
+}
+
+.bottom-banner-row2 {
+    /* float: right; */
+    /* display: flex; */
+}
+
+.bottom-banner-column1 {
+    /* width: 100%; */
+    float: left;
+    width: calc(100% - 555px);
+}
+
+.bottom-banner-column2 {
+    float: right;
+    width: 550px;
+}
+
+.mat-card {
+    /* height: 100%; */
+    color: white;
+    background-color: #2D2D2D;
+    padding: 10px 10px 10px 10px !important;
+}
+
+.text-inside-grid {
+    width: 100%; 
+    text-align: right;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 100px auto 100px auto 100px auto ;
+    grid-row-gap: 5px;
+    grid-column-gap: 20px;
+    align-content: space-between;
+  }
+
+  .bottom-actions {
+    display: table-row;
+    height: 25px;
+    text-align: right;
+  }
+
+  .button {
+    border-color: #585858;
+    color: #cccccc;
+    background: #353535;
+    line-height: 22px;
+    margin: 2px;
+  }
+
+  .button-grid {
+      margin: 5px 0 5px 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-column-gap: 5px;
+    align-content: space-between;
+  }
+
+  .search-grid-container {
+    display: grid;
+    grid-template-columns: 100px 120px auto 80px 80px 80px 80px;
+    grid-row-gap: 5px;
+    grid-column-gap: 7px;
+    align-content: space-between;
+  }

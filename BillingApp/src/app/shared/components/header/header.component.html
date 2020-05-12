@@ -1,0 +1,201 @@
+<div class="header-container">
+
+  <ng-container *ngFor="let menuItem of menuItems">
+
+    <ng-container *ngIf="!menuItem.children">
+      <a class="nav-link">
+        <span class="icon fa" [ngClass]="menuItem.icon"></span>
+        <span class="text-holder">{{menuItem.label}}</span>
+      </a>
+    </ng-container>
+    <ng-container *ngIf="menuItem.children.length > 0">
+      <button #button mat-button [matMenuTriggerFor]="levelOne" #levelOneTrigger="matMenuTrigger"
+        (mouseenter)="buttonEnter(levelOneTrigger)" (mouseleave)="buttonLeave(levelOneTrigger, button)"
+        style="z-index:1050">
+        <span class="icon fa" [ngClass]="menuItem.icon"></span>
+        <span>{{menuItem.label}}
+          <i class="fa fa-chevron-down"></i>
+        </span>
+      </button>
+      
+<!-- <app-menu-item #levelOne [menuItem]="menuItem" [levelOneTrigger]="levelOneTrigger" [button]="button"></app-menu-item> -->
+
+      <mat-menu #levelOne="matMenu" direction="down" yPosition="below">
+        <span (mouseenter)="menuenter()" (mouseleave)="menuLeave(levelOneTrigger, button)">
+          <ng-container *ngFor="let childL1 of menuItem.children">
+            <ng-container *ngIf="childL1.label !== '-'; else showDivider">
+              <li class="p-0" *ngIf="!childL1.children" mat-menu-item
+                (click)="createTask(childL1.title, childL1.route)">
+                <a class="nav-link">{{childL1.label}}
+                  <i *ngIf="childL1.icon" [ngClass]="childL1.icon"></i>
+                </a>
+              </li>
+            </ng-container>
+            <ng-template #showDivider>
+              <mat-divider></mat-divider>
+            </ng-template>
+            <ng-container *ngIf="childL1.children && childL1.children.length > 0">
+              <ng-container *ngIf="childL1.label !== '-'; else showDivider">
+                <li mat-menu-item #levelTwoTrigger="matMenuTrigger" [matMenuTriggerFor]="levelTwo"
+                  (click)="createTask(childL1.title, childL1.route)">
+                  <a class="nav-link">{{childL1.label}}
+                    <i *ngIf="childL1.icon" [ngClass]="childL1.icon"></i>
+                  </a>
+                </li>
+              </ng-container>
+              <ng-template #showDivider>
+                <mat-divider></mat-divider>
+              </ng-template>
+              <mat-menu #levelTwo="matMenu">
+                <span (mouseenter)="menu2enter()" (mouseleave)="menu2Leave(levelOneTrigger,levelTwoTrigger, button)">
+                  <ng-container *ngFor="let childL2 of childL1.children">
+                    <ng-container *ngIf="childL2.label !== '-'; else showDivider">
+                      <li class="p-0" mat-menu-item (click)="createTask(childL2.title, childL2.route)">
+                        <a class="nav-link">{{childL2.label}}
+                          <i *ngIf="childL2.icon" [ngClass]="childL2.icon"></i>
+                        </a>
+                      </li>
+                    </ng-container>
+                    <ng-template #showDivider>
+                      <mat-divider></mat-divider>
+                    </ng-template>
+                  </ng-container>
+                </span>
+              </mat-menu>
+            </ng-container>
+          </ng-container>
+        </span>
+      </mat-menu>
+    </ng-container>
+  </ng-container>
+
+
+
+  <!--   
+  <button #button mat-button [matMenuTriggerFor]="pos" #posTrigger="matMenuTrigger" (mouseenter)="buttonEnter(posTrigger)" (mouseleave)="buttonLeave(posTrigger, button)">Point of sale</button>
+  <mat-menu #pos="matMenu" [overlapTrigger]="false">
+    <span (mouseleave)="posTrigger.closeMenu()">
+      <a mat-menu-item (click)="createTask('Sales Bill', '/salesbill')">New</a>
+      <a mat-menu-item (click)="createTask('Home', '/home')">Modification</a>
+      <a mat-menu-item (click)="createTask('Home', '/home')">Cancellation</a>
+      <a mat-menu-item (click)="createTask('Home', '/home')">Copy/Reprint</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item (click)="createTask('Home', '/home')">Enquiry</a>
+      <a mat-menu-item (click)="createTask('Home', '/home')">Item Enquiry</a>
+    </span>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="inventory" #inventoryTransTrigger="matMenuTrigger" (mouseenter)="inventoryTransTrigger.openMenu()">Inventory Transaction</button>
+  <mat-menu #inventory="matMenu">
+    <span (mouseleave)="inventoryTransTrigger.closeMenu()">
+      <a mat-menu-item [matMenuTriggerFor]="salesbill">Sales</a>
+      <a mat-menu-item [matMenuTriggerFor]="purchaseentry">Purchase</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item [matMenuTriggerFor]="salesreturn">Sales Return</a>
+      <a mat-menu-item [matMenuTriggerFor]="purchasereturn">Purchase Return</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item [matMenuTriggerFor]="salesestimate">Sales Estimate</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item [matMenuTriggerFor]="damagedstock">Damaged Stock</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item>Customer Order Form</a>
+      <a mat-menu-item>Listing Order Form</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item>Stock Journal</a>
+      <mat-divider></mat-divider>
+      <a mat-menu-item>Purchase Order</a>
+      <a mat-menu-item>Purchase Order Listing</a>
+      <a mat-menu-item [matMenuTriggerFor]="stocktakenvoucher">Stock Taken Voucher</a>
+    </span>
+  </mat-menu>
+  <mat-menu #salesbill="matMenu">
+    <a mat-menu-item (click)="createTask('Sales Bill', '/salesbill')">New</a>
+    <a mat-menu-item>Modification</a>
+    <a mat-menu-item>Cancellation</a>
+    <a mat-menu-item>Copy/Reprint</a>
+    <mat-divider></mat-divider>
+    <a mat-menu-item>Enquiry</a>
+    <a mat-menu-item>Item Enquiry</a>
+  </mat-menu>
+  <mat-menu #purchaseentry="matMenu">
+    <a mat-menu-item (click)="createTask('Purchase Entry', '/purchaseentry')">New</a>
+    <a mat-menu-item>Modification</a>
+    <a mat-menu-item>Cancellation</a>
+    <a mat-menu-item>Copy/Reprint</a>
+    <mat-divider></mat-divider>
+    <a mat-menu-item>Enquiry</a>
+    <a mat-menu-item>Item Enquiry</a>
+  </mat-menu>
+  <mat-menu #salesreturn="matMenu">
+    <a mat-menu-item>New Entry</a>
+    <a mat-menu-item>Modification</a>
+    <a mat-menu-item>Cancellation</a>
+    <a mat-menu-item>Copy/Reprint</a>
+    <mat-divider></mat-divider>
+    <a mat-menu-item>Return Enquiry</a>
+  </mat-menu>
+  <mat-menu #purchasereturn="matMenu">
+    <a mat-menu-item>New Entry</a>
+    <a mat-menu-item>Modification</a>
+    <a mat-menu-item>Cancellation</a>
+    <a mat-menu-item>Copy/Reprint</a>
+    <mat-divider></mat-divider>
+    <a mat-menu-item>Return Enquiry</a>
+  </mat-menu>
+  <mat-menu #salesestimate="matMenu">
+    <a mat-menu-item>New</a>
+    <a mat-menu-item>Modification</a>
+    <a mat-menu-item>Cancellation</a>
+  </mat-menu>
+  <mat-menu #damagedstock="matMenu">
+    <a mat-menu-item>New</a>
+    <a mat-menu-item>Modification</a>
+    <a mat-menu-item>Cancellation</a>
+    <a mat-menu-item>List</a>
+  </mat-menu>
+  <mat-menu #stocktakenvoucher="matMenu">
+    <a mat-menu-item>Stock Voucher</a>
+    <a mat-menu-item>Stock Updation</a>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="finance" #financeTransTrigger="matMenuTrigger" (mouseenter)="financeTransTrigger.openMenu()">Financial Transaction</button>
+  <mat-menu #finance="matMenu">
+    <span (mouseleave)="financeTransTrigger.closeMenu()">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </span>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="creation" #creationTrigger="matMenuTrigger" (mouseenter)="creationTrigger.openMenu()">Creation</button>
+  <mat-menu #creation="matMenu">
+    <span (mouseleave)="creationTrigger.closeMenu()">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </span>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="invoicereport" #invoiceReportTrigger="matMenuTrigger" (mouseenter)="invoiceReportTrigger.openMenu()">Inventory Reports</button>
+  <mat-menu #invoicereport="matMenu">
+    <span (mouseleave)="invoiceReportTrigger.closeMenu()">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </span>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="financereport" #financeReportTrigger="matMenuTrigger" (mouseenter)="financeReportTrigger.openMenu()">Fiancial Reports</button>
+  <mat-menu #financereport="matMenu">
+    <span (mouseleave)="financeReportTrigger.closeMenu()">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </span>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="settings" #settingsTrigger="matMenuTrigger" (mouseenter)="settingsTrigger.openMenu()">Settings</button>
+  <mat-menu #settings="matMenu">
+    <span (mouseleave)="settingsTrigger.closeMenu()">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </span>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="help" #helpTrigger="matMenuTrigger" (mouseenter)="helpTrigger.openMenu()">Help</button>
+  <mat-menu #help="matMenu">
+    <span (mouseleave)="helpTrigger.closeMenu()">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </span>
+  </mat-menu> -->
+</div>

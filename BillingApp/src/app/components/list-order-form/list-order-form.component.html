@@ -1,0 +1,141 @@
+<div class="customer-contianer mat-elevation-z8">
+  <div class="top-banner-row">
+    <div class="top-banner-cell">
+      <mat-card>
+        <div class="grid-container">
+          <div>
+            Due Date From:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            To:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput [matDatepicker]="picker1">
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            Status:
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select>
+                <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+          </div>
+          <div>
+            <button class="button" mat-stroked-button color="primary">Refresh</button>
+          </div>
+          <div>
+          </div>
+          <div>
+            <button class="button" mat-stroked-button color="primary">Find</button>
+          </div>
+          <div>
+          </div>
+          <div>
+            <button class="button" mat-stroked-button color="primary">Filter</button>
+          </div>
+          <div>
+          </div>
+          <div>
+            <button class="button" mat-stroked-button color="primary">Sort</button>
+          </div>
+          <div>
+          </div>
+          <div>
+            <button class="button" mat-stroked-button color="primary">Orders</button>
+          </div>
+          <div>
+          </div>
+          <div>
+            <button class="button" mat-stroked-button color="primary">Bills</button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="purchase-table-container">
+      <mat-table id="{{tabid}}_view" [dataSource]="dataSource">
+        <ng-container matColumnDef="billNo">
+          <mat-header-cell *matHeaderCellDef> Order Bill No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Date}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="customer">
+          <mat-header-cell *matHeaderCellDef> Customer </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Customer}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="duedate">
+          <mat-header-cell *matHeaderCellDef> Due Date </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.DueDate}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="duetime">
+          <mat-header-cell *matHeaderCellDef> Due Time </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.DueTime}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <mat-header-cell *matHeaderCellDef> Order Bill Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Amount}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="advance">
+          <mat-header-cell *matHeaderCellDef> Advance </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Advance}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="payment">
+          <mat-header-cell *matHeaderCellDef> Payment </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Payment}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Status}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="delivery">
+          <mat-header-cell *matHeaderCellDef> Delivery </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Delivery}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="total">
+          <mat-header-cell *matHeaderCellDef> Total Bill Amt </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Delivery}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="salebillamt">
+          <mat-header-cell *matHeaderCellDef> Sal Bill Amt </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.SalBillAmount}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+
+  <div class="bottom-actions">
+    <div class="button-grid">
+      <div>
+        <button class="button" mat-stroked-button color="primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

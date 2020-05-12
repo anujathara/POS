@@ -1,0 +1,191 @@
+<div class="customer-contianer mat-elevation-z8">
+  <div class="top-banner-row">
+    <div class="top-banner-cell">
+      <mat-card>
+        <div class="grid-container">
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select [(value)]="selected">
+                <mat-option *ngFor="let enquiry of enquiries" [value]="enquiry.value">
+                  {{enquiry.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select [(value)]="selected">
+                <mat-option *ngFor="let enquiry of enquiries" [value]="enquiry.value">
+                  {{enquiry.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select [(value)]="selected">
+                <mat-option *ngFor="let enquiry of enquiries" [value]="enquiry.value">
+                  {{enquiry.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select [(value)]="selected">
+                <mat-option *ngFor="let enquiry of enquiries" [value]="enquiry.value">
+                  {{enquiry.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select [(value)]="selected">
+                <mat-option *ngFor="let enquiry of enquiries" [value]="enquiry.value">
+                  {{enquiry.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select [(value)]="selected">
+                <mat-option *ngFor="let enquiry of enquiries" [value]="enquiry.value">
+                  {{enquiry.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <input matInput id="searchInput" (keydown)="onKeydown($event)" (keyup)="onKeyup($event)"
+                [(ngModel)]="filterValue" autocomplete="off">
+            </mat-form-field>
+          </div>
+
+        </div>
+      </mat-card>
+      <mat-card style="margin-top: 7px;">
+        <div class="search-grid-container">
+          <div>
+            Search Type
+          </div>
+          <div>
+            <mat-form-field class="custom-form-feild">
+              <mat-select [(value)]="selected">
+                <mat-option *ngFor="let type of SearchTypes" [value]="type.value">
+                  {{type.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div></div>
+          <button class="button" mat-stroked-button color="primary">Sort</button>
+          <button class="button" mat-stroked-button color="primary">Filter</button>
+          <button class="button" mat-stroked-button color="primary">Search</button>
+          <button class="button" mat-stroked-button color="primary">Clear</button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="purchase-table-container">
+      <mat-table id="{{tabid}}_view" [dataSource]="dataSource">
+        <ng-container matColumnDef="billNo">
+          <mat-header-cell *matHeaderCellDef> Bill No. </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.SerialNumber}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef> Voucher </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Date}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="customer">
+          <mat-header-cell *matHeaderCellDef> Invoice No </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Customer}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="duedate">
+          <mat-header-cell *matHeaderCellDef> Inv. Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.DueDate}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="duetime">
+          <mat-header-cell *matHeaderCellDef> Supplier </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.DueTime}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="amount">
+          <mat-header-cell *matHeaderCellDef> Inv Date </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Amount}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="advance">
+          <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Advance}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="payment">
+          <mat-header-cell *matHeaderCellDef> P.Type </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Payment}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> Disc.Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Status}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="delivery">
+          <mat-header-cell *matHeaderCellDef> Tax Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Delivery}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="total">
+          <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.Delivery}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="salebillamt">
+          <mat-header-cell *matHeaderCellDef> Narattion </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.SalBillAmount}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </div>
+
+  <div class="bottom-actions">
+    <div class="button-grid">
+      <div>
+        <button class="button" mat-stroked-button color="primary">Print</button>
+        <button class="button" mat-stroked-button color="primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
